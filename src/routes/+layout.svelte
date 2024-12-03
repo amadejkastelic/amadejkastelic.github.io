@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Nav from '../components/Nav.svelte';
 	import ThemeToggle from '../components/ThemeToggle.svelte';
 	import '@fontsource/noto-sans';
 	import '@fontsource/noto-sans/700.css';
@@ -14,9 +13,6 @@
 	style:color={$theme.colors.text.hex}
 >
 	<ThemeToggle />
-	<header class="header">
-		<Nav />
-	</header>
 	<main>
 		{@render children()}
 	</main>
@@ -48,12 +44,6 @@
 		display: flex;
 		flex-direction: column;
 	}
-	.header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 1rem;
-	}
 	main {
 		flex: 1;
 		padding: 20px;
@@ -65,10 +55,6 @@
 	@media (max-width: 600px) {
 		main {
 			padding: 10px;
-		}
-		.header {
-			flex-direction: column;
-			align-items: flex-start;
 		}
 	}
 </style>

@@ -6,6 +6,7 @@
     "npm:@fontsource/noto-sans@^5.1.0": "5.1.0",
     "npm:@indaco/svelte-iconoir@^7.10.0": "7.10.0_svelte@4.2.19",
     "npm:@sveltejs/adapter-auto@3": "3.3.1_@sveltejs+kit@2.9.0__@sveltejs+vite-plugin-svelte@5.0.1___svelte@5.3.1____acorn@8.14.0___vite@6.0.2__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2",
+    "npm:@sveltejs/adapter-static@^3.0.6": "3.0.6_@sveltejs+kit@2.9.0__@sveltejs+vite-plugin-svelte@5.0.1___svelte@5.3.1____acorn@8.14.0___vite@6.0.2__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2",
     "npm:@sveltejs/kit@^2.9.0": "2.9.0_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2",
     "npm:@sveltejs/vite-plugin-svelte@5": "5.0.1_svelte@5.3.1__acorn@8.14.0_vite@6.0.2",
     "npm:eslint-config-prettier@^9.1.0": "9.1.0_eslint@9.16.0",
@@ -18,7 +19,6 @@
     "npm:prettier@^3.3.2": "3.4.1",
     "npm:svelte-check@4": "4.1.0_svelte@5.3.1__acorn@8.14.0_typescript@5.7.2",
     "npm:svelte@5": "5.3.1_acorn@8.14.0",
-    "npm:sveltekit-adapter-deno@~0.16.1": "0.16.1_@sveltejs+kit@2.9.0__@sveltejs+vite-plugin-svelte@5.0.1___svelte@5.3.1____acorn@8.14.0___vite@6.0.2__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2",
     "npm:typescript-eslint@8": "8.16.0_eslint@9.16.0_@typescript-eslint+parser@8.16.0__eslint@9.16.0__typescript@5.7.2_typescript@5.7.2",
     "npm:typescript@5": "5.7.2",
     "npm:vite@6": "6.0.2"
@@ -327,6 +327,12 @@
       "dependencies": [
         "@sveltejs/kit",
         "import-meta-resolve"
+      ]
+    },
+    "@sveltejs/adapter-static@3.0.6_@sveltejs+kit@2.9.0__@sveltejs+vite-plugin-svelte@5.0.1___svelte@5.3.1____acorn@8.14.0___vite@6.0.2__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2": {
+      "integrity": "sha512-MGJcesnJWj7FxDcB/GbrdYD3q24Uk0PIL4QIX149ku+hlJuj//nxUbb0HxUTpjkecWfHjVveSUnUaQWnPRXlpg==",
+      "dependencies": [
+        "@sveltejs/kit"
       ]
     },
     "@sveltejs/kit@2.9.0_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2": {
@@ -1314,13 +1320,6 @@
         "zimmerframe"
       ]
     },
-    "sveltekit-adapter-deno@0.16.1_@sveltejs+kit@2.9.0__@sveltejs+vite-plugin-svelte@5.0.1___svelte@5.3.1____acorn@8.14.0___vite@6.0.2__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_@sveltejs+vite-plugin-svelte@5.0.1__svelte@5.3.1___acorn@8.14.0__vite@6.0.2_svelte@5.3.1__acorn@8.14.0_vite@6.0.2": {
-      "integrity": "sha512-AwJj5Y9yoJ5BQVhfFURrVex5GrQmU/v06pW8vs6tyWaJxEYrnF6o3gbELVtCOI/YRl4G02I7n8fBDMY+/cgBdg==",
-      "dependencies": [
-        "@sveltejs/kit",
-        "esbuild"
-      ]
-    },
     "svg.draggable.js@2.2.2": {
       "integrity": "sha512-JzNHBc2fLQMzYCZ90KZHN2ohXL0BQJGQimK1kGk6AvSeibuKcIdDX9Kr0dT9+UJ5O8nYA0RB839Lhvk4CY4MZw==",
       "dependencies": [
@@ -1461,6 +1460,7 @@
         "npm:@fontsource/noto-sans@^5.1.0",
         "npm:@indaco/svelte-iconoir@^7.10.0",
         "npm:@sveltejs/adapter-auto@3",
+        "npm:@sveltejs/adapter-static@^3.0.6",
         "npm:@sveltejs/kit@^2.9.0",
         "npm:@sveltejs/vite-plugin-svelte@5",
         "npm:eslint-config-prettier@^9.1.0",
@@ -1473,7 +1473,6 @@
         "npm:prettier@^3.3.2",
         "npm:svelte-check@4",
         "npm:svelte@5",
-        "npm:sveltekit-adapter-deno@~0.16.1",
         "npm:typescript-eslint@8",
         "npm:typescript@5",
         "npm:vite@6"

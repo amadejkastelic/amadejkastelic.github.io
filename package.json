@@ -14,9 +14,9 @@
 	"dependencies": {
 		"@catppuccin/palette": "^1.7.1",
 		"@indaco/svelte-iconoir": "^7.10.0",
+		"@sveltejs/adapter-static": "^3.0.6",
 		"flowbite": "^2.5.2",
-		"flowbite-svelte": "^0.47.4",
-		"sveltekit-adapter-deno": "^0.16.1"
+		"flowbite-svelte": "^0.47.4"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.3",

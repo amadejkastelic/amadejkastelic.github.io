@@ -1,4 +1,5 @@
 <script>
+	import { DiscordIcon } from '@indaco/svelte-iconoir/discord';
 	import { LinkedInIcon } from '@indaco/svelte-iconoir/linkedin';
 	import { GitHubIcon } from '@indaco/svelte-iconoir/github';
 	import { MailIcon } from '@indaco/svelte-iconoir/mail';
@@ -9,6 +10,7 @@
 	const photoUrl = '/me.jpg';
 	const githubUrl = 'https://github.com/amadejkastelic';
 	const linkedinUrl = 'https://linkedin.com/in/amadej-kastelic-9931a1169/';
+	const discordUrl = 'https://discordapp.com/users/181176311895556096';
 	const email = 'amadejkastelic7@gmail.com';
 </script>
 
@@ -22,6 +24,9 @@
 		</a>
 		<a href={linkedinUrl} target="_blank">
 			<LinkedInIcon size="xl" />
+		</a>
+		<a href={discordUrl} target="_blank">
+			<DiscordIcon size="xl" />
 		</a>
 		<a href="mailto:{email}" aria-label="Email">
 			<MailIcon size="xl" />
