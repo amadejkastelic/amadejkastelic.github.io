@@ -1,8 +1,8 @@
 <script>
-	import { DiscordIcon } from '@indaco/svelte-iconoir/discord';
 	import { LinkedInIcon } from '@indaco/svelte-iconoir/linkedin';
 	import { GitHubIcon } from '@indaco/svelte-iconoir/github';
 	import { MailIcon } from '@indaco/svelte-iconoir/mail';
+	import { PasteClipboardIcon } from '@indaco/svelte-iconoir/paste-clipboard';
 
 	const name = 'Amadej Kastelic';
 	const title = 'Senior Software Engineer';
@@ -10,7 +10,7 @@
 	const photoUrl = '/me.jpg';
 	const githubUrl = 'https://github.com/amadejkastelic';
 	const linkedinUrl = 'https://linkedin.com/in/amadej-kastelic-9931a1169/';
-	const discordUrl = 'https://discordapp.com/users/181176311895556096';
+	const resumeUrl = 'https://github.com/amadejkastelic/cv/releases/download/resume/CV_AmadejKastelic.pdf';
 	const email = 'amadejkastelic7@gmail.com';
 </script>
 
@@ -19,16 +19,16 @@
 	<img src={photoUrl} alt="pfp" class="photo" />
 	<p class="title">{title} @ <a href="https://veza.com/" target="_blank">{company}</a></p>
 	<div class="social-links">
-		<a href={githubUrl} target="_blank">
+		<a href={githubUrl} title="Github" target="_blank">
 			<GitHubIcon size="xl" />
 		</a>
-		<a href={linkedinUrl} target="_blank">
+		<a href={linkedinUrl} title="Linkedin" target="_blank">
 			<LinkedInIcon size="xl" />
 		</a>
-		<a href={discordUrl} target="_blank">
-			<DiscordIcon size="xl" />
+		<a href={resumeUrl} title="View Resume" target="_blank">
+			<PasteClipboardIcon size="xl" />
 		</a>
-		<a href="mailto:{email}" aria-label="Email">
+		<a href="mailto:{email}" title="Send Email" aria-label="Email">
 			<MailIcon size="xl" />
 		</a>
 	</div>
