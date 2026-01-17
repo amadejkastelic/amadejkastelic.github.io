@@ -1,0 +1,23 @@
+name: Checks
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  check:
+    strategy:
+      matrix:
+        command:
+          - nix flake check -L
+
+    uses: ./.github/workflows/nix.yaml
+    with:
+      command: ${{ matrix.command }}
+
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    needs: check
+    uses: ./.github/workflows/deploy.yml
+    secrets: inherit
