@@ -8,7 +8,7 @@ jobs:
     uses: ./.github/workflows/nix.yml
     with:
       command: nix build .#default -L
-      upload_path: ./build
+      upload_path: ./result
 
   deploy:
     permissions:
