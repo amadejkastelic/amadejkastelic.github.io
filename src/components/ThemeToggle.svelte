@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { theme, toggleTheme } from '../themes';
-	import { SunLightIcon } from '@indaco/svelte-iconoir/sun-light';
-	import { MoonSatIcon } from '@indaco/svelte-iconoir/moon-sat';
+import { theme, toggleTheme } from '../themes'
+import { SunLightIcon } from '@indaco/svelte-iconoir/sun-light'
+import { MoonSatIcon } from '@indaco/svelte-iconoir/moon-sat'
 </script>
 
 <button class="theme-toggle" on:click={toggleTheme}>

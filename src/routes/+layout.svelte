@@ -1,10 +1,10 @@
 <script lang="ts">
-	import ThemeToggle from '../components/ThemeToggle.svelte';
-	import '@fontsource/noto-sans';
-	import '@fontsource/noto-sans/700.css';
-	import { theme } from '../themes';
+import ThemeToggle from '../components/ThemeToggle.svelte'
+import '@fontsource/noto-sans'
+import '@fontsource/noto-sans/700.css'
+import { theme } from '../themes'
 
-	let { children } = $props<{ children: any }>();
+let { children }: { children: any } = $props()
 </script>
 
 <div
@@ -19,13 +19,8 @@
 </div>
 
 <svelte:head>
-	{@html `
-    <style>
-      :root {
-        --hover-color: ${$theme.colors.blue.hex};
-      }
-    </style>
-  `}
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	{@html `<style>:root { --hover-color: ${$theme.colors.blue.hex}; }</style>`}
 </svelte:head>
 
 <style>
