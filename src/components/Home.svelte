@@ -6,7 +6,7 @@ import { PasteClipboardIcon } from '@indaco/svelte-iconoir/paste-clipboard'
 
 const name = 'Amadej Kastelic'
 const title = 'Senior Software Engineer'
-const company = 'Veza'
+const company = 'ServiceNow'
 const photoUrl = '/me.jpg'
 const githubUrl = 'https://github.com/amadejkastelic'
 const linkedinUrl = 'https://linkedin.com/in/amadej-kastelic-9931a1169/'
@@ -18,7 +18,7 @@ const email = 'amadejkastelic7@gmail.com'
 <div class="intro">
 	<h1 class="name">{name}</h1>
 	<img src={photoUrl} alt="pfp" class="photo" />
-	<p class="title">{title} @ <a href="https://veza.com/" target="_blank">{company}</a></p>
+	<p class="title">{title} @ <a href="https://www.servicenow.com/" target="_blank">{company}</a></p>
 	<div class="social-links">
 		<a href={githubUrl} title="Github" target="_blank">
 			<GitHubIcon size="xl" />
