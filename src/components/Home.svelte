@@ -12,7 +12,7 @@ const githubUrl = 'https://github.com/amadejkastelic'
 const linkedinUrl = 'https://linkedin.com/in/amadej-kastelic-9931a1169/'
 const resumeUrl =
 	'https://github.com/amadejkastelic/cv/releases/download/resume/CV_AmadejKastelic.pdf'
-const email = 'amadejkastelic7@gmail.com'
+const email = 'info@amadejk.com'
 </script>
 
 <div class="intro">
