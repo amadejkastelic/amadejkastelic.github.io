@@ -38,7 +38,7 @@
 		<div class="cv-head">
 			<div class="cv-nav">
 				<button onclick={prev} disabled={current === 0} aria-label="Previous page">
-					<NavArrowLeftIcon size="md" />
+					<NavArrowLeftIcon size="sm" />
 				</button>
 				<span class="cv-count">{current + 1} / {pages.length}</span>
 				<button
@@ -46,7 +46,7 @@
 					disabled={current === pages.length - 1}
 					aria-label="Next page"
 				>
-					<NavArrowRightIcon size="md" />
+					<NavArrowRightIcon size="sm" />
 				</button>
 			</div>
 			<a href="/cv.pdf" target="_blank" rel="noopener">Download PDF</a>
