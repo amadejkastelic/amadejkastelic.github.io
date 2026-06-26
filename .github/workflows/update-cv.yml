@@ -9,14 +9,14 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GH_COMMIT_TOKEN }}
 
       - name: Install Nix
         uses: nixbuild/nix-quick-install-action@v35
@@ -25,14 +25,6 @@ jobs:
         run: nix flake lock --update-input cv
 
       - name: Commit lockfile
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add flake.lock
-          git commit -m "chore: bump cv to ${{ github.event.inputs.sha }}" || echo "no changes"
-          git push
-
-  deploy:
-    needs: update
-    uses: ./.github/workflows/deploy.yml
-    secrets: inherit
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore: bump cv to ${{ github.event.inputs.sha }}"
