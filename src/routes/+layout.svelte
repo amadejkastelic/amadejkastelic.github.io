@@ -28,8 +28,9 @@
 </div>
 
 <svelte:head>
+	<meta name="theme-color" content={$theme.colors.base.hex} />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `<style>:root { --hover-color: ${$theme.colors.blue.hex}; }</style>`}
+	{@html `<style>:root { --hover-color: ${$theme.colors.blue.hex}; } html, body { background-color: ${$theme.colors.base.hex}; }</style>`}
 </svelte:head>
 
 <style>
@@ -45,6 +46,7 @@
 	}
 	.layout {
 		min-height: 100vh;
+		min-height: 100dvh;
 		display: flex;
 		flex-direction: column;
 	}

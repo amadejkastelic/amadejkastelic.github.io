@@ -46,4 +46,12 @@
 		font-size: 0.85rem;
 		opacity: 0.6;
 	}
+	@media (max-width: 600px) {
+		footer {
+			padding: 1.25rem 1rem;
+		}
+		.copyright {
+			margin-top: 0.75rem;
+		}
+	}
 </style>

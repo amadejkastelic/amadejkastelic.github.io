@@ -20,4 +20,13 @@
 		height: 150px;
 		border-radius: 50%;
 	}
+	@media (max-width: 600px) {
+		.intro {
+			padding: 10px;
+		}
+		.photo {
+			width: 120px;
+			height: 120px;
+		}
+	}
 </style>
