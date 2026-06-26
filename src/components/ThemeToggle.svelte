@@ -14,10 +14,6 @@ import { MoonSatIcon } from '@indaco/svelte-iconoir/moon-sat'
 
 <style>
 	.theme-toggle {
-		position: fixed;
-		top: 1rem;
-		right: 1rem;
-		z-index: 100;
 		background: none;
 		border: none;
 		cursor: pointer;

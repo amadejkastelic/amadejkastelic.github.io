@@ -29,3 +29,7 @@ vite.config.ts.timestamp-*
 result
 .direnv
 .pre-commit-config.yaml
+
+# CV (generated from the cv flake input in dev/build)
+/src/cv-pages
+/static/cv.pdf

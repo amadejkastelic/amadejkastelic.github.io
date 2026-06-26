@@ -1,13 +1,12 @@
 <script>
-import Home from '../components/Home.svelte'
+	import Home from '../components/Home.svelte'
+	import Seo from '../components/Seo.svelte'
+	import { site } from '$lib'
 </script>
 
-<svelte:head>
-	<title>Amadej Kastelic</title>
-	<meta
-		name="description"
-		content="Portfolio of Amadej Kastelic, showcasing projects and skills in development"
-	/>
-</svelte:head>
+<Seo
+	title={site.name}
+	description={`${site.name} - ${site.role} at ${site.company}.`}
+/>
 
 <Home />

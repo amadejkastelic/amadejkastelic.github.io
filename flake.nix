@@ -19,6 +19,8 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    cv.url = "github:amadejkastelic/cv";
   };
 
   nixConfig = {
@@ -40,66 +42,78 @@
       gitignore,
       bun2nix,
       git-hooks,
+      cv,
       ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
+    flake-utils.lib.eachSystem
+      [
+        "x86_64-linux"
+        "aarch64-linux"
+        "x86_64-darwin"
+        "aarch64-darwin"
+      ]
+      (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
 
-        pkgsWithOverlay = import nixpkgs {
-          inherit system;
-          overlays = [ bun2nix.overlays.default ];
-        };
-
-        gitignoreSource = gitignore.lib.gitignoreSource;
-      in
-      {
-        checks = {
-          pre-commit-check = import ./nix/pre-commit.nix {
-            inherit gitignoreSource;
-            preCommitHooks = git-hooks.lib.${system};
-          };
-        };
-
-        packages = rec {
-          website = pkgsWithOverlay.callPackage ./nix/package.nix {
-            inherit gitignoreSource;
+          pkgsWithOverlay = import nixpkgs {
+            inherit system;
+            overlays = [ bun2nix.overlays.default ];
           };
 
-          default = website;
-
-          serve = pkgs.writeShellApplication {
-            name = "serve-website";
-
-            runtimeInputs = [
-              pkgs.static-web-server
-              website
-            ];
-
-            text = ''
-              PORT="''${1:-8080}"
-              static-web-server --root ${website} --port "$PORT" --host 0.0.0.0
-            '';
-          };
-        };
-
-        apps = rec {
-          serve = {
-            type = "app";
-            program = "${self.packages.${system}.serve}/bin/serve-website";
+          gitignoreSource = gitignore.lib.gitignoreSource;
+        in
+        {
+          checks = {
+            pre-commit-check = import ./nix/pre-commit.nix {
+              inherit gitignoreSource;
+              preCommitHooks = git-hooks.lib.${system};
+            };
           };
 
-          default = serve;
-        };
+          packages = rec {
+            website = pkgsWithOverlay.callPackage ./nix/package.nix {
+              inherit gitignoreSource;
+              cvSvg = cv.packages.${system}.svg;
+              cvPdf = cv.packages.${system}.pdf;
+            };
 
-        devShells = {
-          default = import ./nix/shell.nix {
-            inherit pkgs;
-            bun2nixPackage = bun2nix.packages.${system}.default;
-            pre-commit-check = self.checks.${system}.pre-commit-check;
+            default = website;
+
+            serve = pkgs.writeShellApplication {
+              name = "serve-website";
+
+              runtimeInputs = [
+                pkgs.static-web-server
+                website
+              ];
+
+              text = ''
+                PORT="''${1:-8080}"
+                static-web-server --root ${website} --port "$PORT" --host 0.0.0.0
+              '';
+            };
           };
-        };
-      }
-    );
+
+          apps = rec {
+            serve = {
+              type = "app";
+              program = "${self.packages.${system}.serve}/bin/serve-website";
+            };
+
+            default = serve;
+          };
+
+          devShells = {
+            default = import ./nix/shell.nix {
+              inherit pkgs;
+              bun2nixPackage = bun2nix.packages.${system}.default;
+              pre-commit-check = self.checks.${system}.pre-commit-check;
+              cvSvg = cv.packages.${system}.svg;
+              cvPdf = cv.packages.${system}.pdf;
+            };
+          };
+        }
+      );
 }
