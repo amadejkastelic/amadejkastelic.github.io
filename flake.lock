@@ -30,11 +30,11 @@
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1782482331,
-        "narHash": "sha256-RGvHFiv0fXYXHskEL9WHUd6cFswbXQH+E+3YHst5Gws=",
+        "lastModified": 1782834856,
+        "narHash": "sha256-wwKglUBfIm8D61b06piDAOvq40plmSQ98S/EraBmYrE=",
         "owner": "amadejkastelic",
         "repo": "cv",
-        "rev": "e56814f6ceb1d0bb4dd557a24ce0f95fffa165c6",
+        "rev": "193c1d6162212dce14803ee6950c455bc04e8fa5",
         "type": "github"
       },
       "original": {
