@@ -3,6 +3,7 @@
 
 	const links = [
 		{ href: '/', label: 'Home' },
+		{ href: '/blog', label: 'Blog' },
 		{ href: '/about', label: 'About' },
 		{ href: '/cv', label: 'CV' }
 	]

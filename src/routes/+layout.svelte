@@ -5,6 +5,7 @@
 	import '@fontsource/noto-sans'
 	import '@fontsource/noto-sans/700.css'
 	import { theme } from '../themes'
+	import { site } from '#lib'
 
 	let { children }: { children: any } = $props()
 </script>
@@ -29,6 +30,7 @@
 
 <svelte:head>
 	<meta name="theme-color" content={$theme.colors.base.hex} />
+	<link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html `<style>:root { --hover-color: ${$theme.colors.blue.hex}; } html, body { background-color: ${$theme.colors.base.hex}; }</style>`}
 </svelte:head>
