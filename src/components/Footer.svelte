@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { site } from '$lib'
+	import { site } from '#lib'
 	import { GitHubIcon } from '@indaco/svelte-iconoir/github'
 	import { LinkedInIcon } from '@indaco/svelte-iconoir/linkedin'
 	import { MailIcon } from '@indaco/svelte-iconoir/mail'

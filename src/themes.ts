@@ -1,6 +1,6 @@
 import { type CatppuccinFlavor, flavors } from '@catppuccin/palette'
 import { derived, writable } from 'svelte/store'
-import { browser } from '$app/environment'
+import { browser } from '$app/env'
 
 function getInitialTheme(): 'latte' | 'mocha' {
 	if (browser) {

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { page } from '$app/stores'
+	import { page } from '$app/state'
 
 	const links = [
 		{ href: '/', label: 'Home' },
@@ -17,7 +17,7 @@
 	{#each links as link (link.href)}
 		<a
 			href={link.href}
-			class:active={isActive(link.href, $page.url.pathname)}>{link.label}</a>
+			class:active={isActive(link.href, page.url.pathname)}>{link.label}</a>
 	{/each}
 </nav>
 

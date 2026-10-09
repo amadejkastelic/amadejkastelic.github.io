@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '../../components/Seo.svelte'
-	import { site } from '$lib'
+	import { site } from '#lib'
 </script>
 
 <Seo title="About" description={`About ${site.name} - ${site.role} at ${site.company}.`} />

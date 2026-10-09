@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Seo from '../../components/Seo.svelte'
-	import { site } from '$lib'
+	import { site } from '#lib'
 	import { NavArrowLeftIcon } from '@indaco/svelte-iconoir/nav-arrow-left'
 	import { NavArrowRightIcon } from '@indaco/svelte-iconoir/nav-arrow-right'
 

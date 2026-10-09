@@ -1,5 +1,5 @@
 <script>
-	import { site } from '$lib'
+	import { site } from '#lib'
 
 	const photoUrl = '/me.jpg'
 </script>
