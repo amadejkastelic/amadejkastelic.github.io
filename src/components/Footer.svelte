@@ -4,6 +4,7 @@
 	import { LinkedInIcon } from '@indaco/svelte-iconoir/linkedin'
 	import { MailIcon } from '@indaco/svelte-iconoir/mail'
 	import { PasteClipboardIcon } from '@indaco/svelte-iconoir/paste-clipboard'
+	import { RssFeedIcon } from '@indaco/svelte-iconoir/rss-feed'
 
 	const year = new Date().getFullYear()
 </script>
@@ -22,7 +23,9 @@
 		<a href="mailto:{site.email}" title="Send Email" aria-label="Email">
 			<MailIcon size="xl" />
 		</a>
-		<a class="rss" href="/rss.xml" title="RSS Feed">RSS</a>
+		<a href="/rss.xml" title="RSS Feed" aria-label="RSS Feed">
+			<RssFeedIcon size="xl" />
+		</a>
 	</div>
 	<p class="copyright">© {year} {site.name}</p>
 </footer>
@@ -41,14 +44,6 @@
 	}
 	.social-links a:hover {
 		color: var(--hover-color);
-	}
-	.social-links a.rss {
-		font-size: 0.85rem;
-		font-weight: 700;
-		opacity: 0.6;
-	}
-	.social-links a.rss:hover {
-		opacity: 1;
 	}
 	.copyright {
 		margin: 1rem 0 0;
