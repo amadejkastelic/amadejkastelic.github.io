@@ -6,17 +6,21 @@
 		title,
 		description,
 		image = '/me.jpg',
-		type = 'website'
+		type = 'website',
+		jsonLd
 	}: {
 		title: string
 		description: string
 		image?: string
 		type?: 'website' | 'article'
+		jsonLd?: Record<string, unknown> | Record<string, unknown>[]
 	} = $props()
 
 	const fullTitle = $derived(title === site.name ? title : `${title} · ${site.name}`)
 	const url = $derived(`${site.url}${page.url.pathname}`)
 	const imageUrl = $derived(image.startsWith('http') ? image : `${site.url}${image}`)
+	// Escaping "<" keeps embedded JSON from breaking out of the script tag.
+	const json = $derived(jsonLd === undefined ? undefined : JSON.stringify(jsonLd).replaceAll('<', '\\u003c'))
 </script>
 
 <svelte:head>
@@ -33,4 +37,8 @@
 	<meta name="twitter:title" content={title} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={imageUrl} />
+	{#if json !== undefined}
+		<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+		{@html `<script type="application/ld+json">${json}</script>`}
+	{/if}
 </svelte:head>

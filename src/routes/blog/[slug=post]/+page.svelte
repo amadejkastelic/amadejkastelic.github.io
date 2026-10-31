@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { page } from '$app/state'
 	import Seo from '../../../components/Seo.svelte'
+	import { site } from '#lib'
 	import type { PageProps } from './$types'
 
 	let { data }: PageProps = $props()
@@ -11,9 +13,29 @@
 			month: 'long',
 			day: 'numeric'
 		})
+
+	const postUrl = $derived(`${site.url}/blog/${page.params.slug}`)
+	const jsonLd = $derived({
+		'@context': 'https://schema.org',
+		'@type': 'BlogPosting',
+		headline: data.metadata.title,
+		description: data.metadata.description,
+		datePublished: data.metadata.date,
+		dateModified: data.metadata.date,
+		keywords: data.metadata.tags?.join(', '),
+		url: postUrl,
+		mainEntityOfPage: postUrl,
+		image: `${site.url}/me.jpg`,
+		author: { '@type': 'Person', name: site.name, url: site.url }
+	})
 </script>
 
-<Seo title={data.metadata.title} description={data.metadata.description} type="article" />
+<Seo
+	title={data.metadata.title}
+	description={data.metadata.description}
+	type="article"
+	{jsonLd}
+/>
 
 <article class="post">
 	<h1>{data.metadata.title}</h1>

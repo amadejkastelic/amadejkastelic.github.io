@@ -10,11 +10,28 @@
 			month: 'long',
 			day: 'numeric'
 		})
+
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'Blog',
+		name: `${site.name} · Blog`,
+		url: `${site.url}/blog`,
+		description: `Writing by ${site.name} about Nix, NixOS, homelab infrastructure, and software engineering.`,
+		publisher: { '@type': 'Person', name: site.name, url: site.url },
+		blogPost: posts.map((post) => ({
+			'@type': 'BlogPosting',
+			headline: post.title,
+			description: post.description,
+			url: `${site.url}/blog/${post.slug}`,
+			datePublished: post.date
+		}))
+	}
 </script>
 
 <Seo
 	title="Blog"
 	description={`Writing by ${site.name} about Nix, NixOS, homelab infrastructure, and software engineering.`}
+	{jsonLd}
 />
 
 <section class="blog">

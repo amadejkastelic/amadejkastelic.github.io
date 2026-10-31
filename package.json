@@ -5,6 +5,7 @@
 	"imports": {
 		"#lib": "./src/lib/index.ts",
 		"#lib/posts": "./src/lib/posts.ts",
+		"#lib/raw-posts": "./src/lib/raw-posts.ts",
 		"#lib/*": "./src/lib/*"
 	},
 	"scripts": {

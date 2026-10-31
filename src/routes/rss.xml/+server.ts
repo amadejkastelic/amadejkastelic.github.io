@@ -1,5 +1,6 @@
 import { site } from '#lib'
 import { posts } from '#lib/posts'
+import { getRawPost } from '#lib/raw-posts'
 
 export const prerender = true
 
@@ -16,6 +17,9 @@ export async function GET() {
 	const items = posts
 		.map((post) => {
 			const url = `${site.url}/blog/${post.slug}`
+			const body = getRawPost(post.slug) ?? post.description
+			// Split any "]]>" so it cannot terminate the CDATA section early.
+			const cdata = body.replaceAll(']]>', ']]]]><![CDATA[>')
 			return [
 				'\t\t<item>',
 				`\t\t\t<title>${escapeXml(post.title)}</title>`,
@@ -23,13 +27,15 @@ export async function GET() {
 				`\t\t\t<guid isPermaLink="true">${url}</guid>`,
 				`\t\t\t<pubDate>${new Date(`${post.date}T00:00:00Z`).toUTCString()}</pubDate>`,
 				`\t\t\t<description>${escapeXml(post.description)}</description>`,
+				`\t\t\t<content:encoded><![CDATA[${cdata}]]></content:encoded>`,
+				...(post.tags?.map((tag) => `\t\t\t<category>${escapeXml(tag)}</category>`) ?? []),
 				'\t\t</item>'
 			].join('\n')
 		})
 		.join('\n')
 
 	const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
 	<channel>
 		<title>${escapeXml(site.name)}</title>
 		<link>${site.url}</link>
