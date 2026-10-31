@@ -28,6 +28,10 @@
 		</a>
 	</div>
 	<p class="copyright">© {year} {site.name}</p>
+	<p class="colophon">
+		Built with <a href="https://kit.svelte.dev" target="_blank">SvelteKit</a> and
+		<a href="https://nixos.org" target="_blank">Nix</a>.
+	</p>
 </footer>
 
 <style>
@@ -49,6 +53,17 @@
 		margin: 1rem 0 0;
 		font-size: 0.85rem;
 		opacity: 0.6;
+	}
+	.colophon {
+		margin: 0.35rem 0 0;
+		font-size: 0.85rem;
+		opacity: 0.6;
+	}
+	.colophon a {
+		color: inherit;
+	}
+	.colophon a:hover {
+		color: var(--hover-color);
 	}
 	@media (max-width: 600px) {
 		footer {

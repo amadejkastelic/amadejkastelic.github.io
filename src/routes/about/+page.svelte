@@ -30,7 +30,10 @@
 		</p>
 	</section>
 
-	<p>This site is a small home on the web for my writing and work.</p>
+	<p>
+		This site is a small home on the web for my writing and work — built with SvelteKit,
+		packaged with Nix, and fully reproducible. Even my CV is a flake input.
+	</p>
 </article>
 
 <style>
